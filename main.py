@@ -1,3 +1,4 @@
+# coding: UTF-8
 # インストールした discord.py を読み込む
 import discord
 import random
@@ -20,11 +21,15 @@ async def on_message(message):
     if message.author.bot:
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '朝ごはん':
-        m = "おはようございます" + message.author.name + "さん!"
-        l = ["卵かけご飯","ヨーグルト","焼き魚","ピザパン","ウインナー"]
-        n = random.sample(l,3)
-        await message.channel.send(n)
 
+    l = ["卵かけご飯","ヨーグルト","焼き魚","ピザパン","ウインナー"]
+    a = random.sample(l,3)
+    if message.content == '朝ごはん':   
+        b = message.author.name + "さんには" + str(a) + "がおすすめです！"
+        await message.channel.send(b)
+    if message.content != "朝ごはん":
+        text = message.content
+        point = message.author.name + "さんは" + text + "を選んだんだね！！！！！！"
+        await message.channel.send(point)
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
