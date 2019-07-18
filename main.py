@@ -26,6 +26,7 @@ async def on_message(message):
         await message.channel.send('朝ごはん\n----------------------------------\n')
         await message.channel.send('昼ごはん\n----------------------------------\n')
         await message.channel.send('晩ごはん\n----------------------------------\n')
+        await message.channel.send('朝ごはん,昼ごはん,晩ごはんのリスト内の料理名を入力\n----------------------------------')
         await message.channel.send('朝ごはん表示\n追加\n追加したい料理\n----------------------------------\n')
         await message.channel.send('昼ごはん表示\n追加\n追加したい料理\n----------------------------------\n')
         await message.channel.send('晩ごはん表示\n追加\n追加したい料理\n----------------------------------\n')
@@ -35,12 +36,12 @@ async def on_message(message):
     if message.content == '朝ごはん':   
         b = message.author.name + "さんには" + str(a) + "がおすすめです！"
         await message.channel.send(b)
-    if message.content in a:
+    elif message.content in l:
         text = message.content
         point = message.author.name + "さんは朝ごはんに" + text + "を選んだんだね！！！！！！"
         await message.channel.send(point)
         
-    if cmd[0] == '朝ごはん表示':
+    elif cmd[0] == '朝ごはん表示':
         await message.channel.send(l)
         if cmd[1] == '追加':
             l.append(cmd[2])
@@ -53,7 +54,7 @@ async def on_message(message):
     if message.content == '昼ごはん':
         w = message.author.name + "さんには" + str(k) + "がおすすめです！"
         await message.channel.send(w)
-    if message.content in k:
+    elif message.content in e:
         temp = message.content
         q = message.author.name + "さんは昼ごはんに" + temp + "を選んだんだね！！！！！！"
         await message.channel.send(q)
@@ -70,7 +71,7 @@ async def on_message(message):
     if message.content == '晩ごはん':
         u = message.author.name + "さんには" + str(r) + "がおすすめです！"
         await message.channel.send(u)
-    if message.content in r:
+    elif message.content in s:
         anm = message.content
         y = message.author.name + "さんは晩ごはんに" + anm + "を選んだんだね！！！！！！"
         await message.channel.send(y)
